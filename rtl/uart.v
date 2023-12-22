@@ -187,7 +187,7 @@ wire rx_10 = rx_d == 2'b10;
 reg [2:0] nth;
 
 `ifndef GRAY
-	`define GRAY(X) X//(X^(X>>1))
+	`define GRAY(X) (X^(X>>1))
 `endif
 localparam [2:0]
 	st_end		= `GRAY(4),
