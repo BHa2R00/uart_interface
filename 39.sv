@@ -323,3 +323,23 @@ end
 
 endmodule
 `endif
+
+
+/*
+
+# dft 
+set_scan_configuration -clock_mixing mix_clocks
+set_scan_configuration -chain_count 1
+set_scan_configuration -add_lockup true
+set_scan_configuration -internal_clocks multi
+set_dft_signal -port scan_ena  -type scanenable  -active_state 1
+set_dft_signal -port clk  -type scanclock   -timing {50 100} -view existing_dft 
+set_dft_signal -port scan_si   -type scandatain  -view existing_dft 
+set_dft_signal -port scan_so   -type scandataout -view existing_dft 
+set_scan_path chain1 -view existing_dft -scan_data_in scan_si -scan_data_out scan_so -scan_master_clock clk
+create_test_protocol -infer_clock -infer_asynch
+preview_dft
+insert_dft
+dft_drc
+
+ */
