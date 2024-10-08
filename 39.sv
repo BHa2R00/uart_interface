@@ -43,12 +43,12 @@ always@(*) begin
 end
 
 always@(negedge rstb or posedge clk) begin
-	if(~rstb) d <= 16'd0;
-	else if(setb) begin
-		case(nst)
-			LOAD: d <= div;
-		endcase
-	end
+  if(~rstb) d <= 16'd0;
+  else if(setb) begin
+    case(nst)
+      LOAD: d <= div;
+    endcase
+  end
 end
 
 always@(negedge rstb or posedge clk) begin
@@ -81,12 +81,12 @@ always@(negedge rstb or posedge clk) begin
 end
 
 always@(negedge rstb or posedge clk) begin
-	if(~rstb) tx <= 1'b1;
-	else if(setb) begin
-		case(cst)
-			POP: if(~gt) tx <= b[bth];
-		endcase
-	end
+  if(~rstb) tx <= 1'b1;
+  else if(setb) begin
+    case(cst)
+      POP: if(~gt) tx <= b[bth];
+    endcase
+  end
 end
 
 assign idle = cst == IDLE;
